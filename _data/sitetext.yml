@@ -11,29 +11,29 @@
 # -----------------
 en: &DEFAULT_EN
   header:
-    title: Welcome to our Studio!
-    text: It's Nice To Meet You
-    button: Tell Me More
+    title: ""
+    text: Giải pháp thông minh cho tương lai bền vững
+    button: Xem thêm
     buttonlink: "#services"
 
   services:
-    title: "Services"
-    text: "Lorem ipsum"
+    title: "Dịch vụ"
+    text: "Mô tả dịch vụ"
     section: services
     list:
-      - title: "E-Commerce"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
-        icon: fas fa-shopping-cart #find more at https://fontawesome.com/icons
-      - title: "Responsive Design"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
-        icon: fas fa-laptop
-      - title: "[Markdown](https://en.wikipedia.org/wiki/Markdown)"
-        desc: "Your description here, full **Markdown** support"
-        icon: fab fa-markdown
+      - title: "Tài Nguyên nước"
+        desc: "Mô tả tài nguyên nước , fjsdkljfklasjefilkasjlidfkjqwoiejrhfijfklsa  ksdjfklsahdfiosahifhjsaf."
+        icon: fas fa-water #find more at https://fontawesome.com/icons
+      - title: "WebGIS AI"
+        desc: "Mô tả WebGIS....."
+        icon: fas fa-water
+      - title: "[Môi trường](https://en.wikipedia.org/wiki/Markdown)"
+        desc: "Mô tả **Môi trường** .dfhjklasdjhfklsadj fdikfjlkasdjf"
+        icon: fas fa-seedling
 
   portfolio:
     title: "Portfolio"
-    text: "Lorem ipsum dolor sit amet consectetur."
+    text: "Các dự án tiêu biểu."
     section: portfolio
     closebutton: "Close Project"
 
@@ -44,22 +44,22 @@ en: &DEFAULT_EN
     # left is the default
     #start_align: "left"
     events:
-      - title: "Our Humble Beginnings"
+      - title: "Thành lập"
         year: "2009-2011"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+        desc: "Mô tả 1"
         image: assets/img/timeline/1.jpg
         alt:
-      - title: "An Agency is Born"
+      - title: "Giai đoạn 2"
         year: "March 2011"
         desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
         image: assets/img/timeline/2.jpg
         alt:
-      - title: "Jekyll Theme is created"
+      - title: "Giai đoạn 3"
         year: "2019"
         desc: "Ravi Riley converted Agency, a Bootstrap-based theme, into a Jekyll theme. The Jekyll theme can be installed as a Ruby gem, or remotely. For more information, visit the documentation."
         image: assets/img/timeline/3.jpg
         alt: image alt text
-      - title: "Title"
+      - title: "Giai đoạn 4"
         year: "2009-2011"
         desc: "Your description here, **Markdown** is fully supported."
         image: assets/img/timeline/4.jpg
@@ -79,28 +79,28 @@ en: &DEFAULT_EN
     max-height: 100px
     horizontal-scrolling: "" #"yes/no"
     list:
-      - title: "envato"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: assets/img/clients/envato.jpg
-      - title: "designmodo"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: assets/img/clients/designmodo.jpg
-      - title: "themeforest"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: assets/img/clients/themeforest.jpg
-      - title: "Creative Market"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: assets/img/clients/creative-market.jpg
+      - title: "Tecotec Group"
+        url: https://www.tecotec.com.vn/
+        logo: assets/img/clients/tecotec-logo.png
+      - title: "Toan Thang Company"
+        url: ""
+        logo: assets/img/clients/toanthang-logo.png
+      - title: "Đại học bách khoa"
+        url: "https://hcmut.edu.vn/"
+        logo: assets/img/clients/HCMUT-logo.png
+      - title: "Water point"
+        url: ""
+        logo: assets/img/clients/cuanam-logo.png
 
   team:
-    title: "OUR AMAZING TEAM"
+    title: "Chuyên gia"
     text: "Lorem ipsum dolor sit amet consectetur."
     subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
     section: team
     people:
-      - name: "Kay Garland"
-        role: "Lead Designer"
-        image: assets/img/team/500x500.jpg
+      - name: "Trần Đăng An"
+        role: "Phó giáo sư/ Tiến sỹ"
+        image: assets/img/team/trandangan.jpeg
         social:
           - url: https://twitter.com
             icon: fab fa-twitter
@@ -108,9 +108,9 @@ en: &DEFAULT_EN
             icon: fab fa-facebook-f
           - url: https://linkedin.com
             icon: fab fa-linkedin-in
-      - name: "Larry Parker"
-        role: "Lead Marketer"
-        image: assets/img/team/2.jpg
+      - name: "Vũ Thị Hoài Thu"
+        role: "Tiến sỹ"
+        image: assets/img/team/trandangan.jpeg
         social:
           - url: https://twitter.com
             icon: fab fa-twitter
@@ -118,9 +118,9 @@ en: &DEFAULT_EN
             icon: fab fa-facebook-f
           - url: https://linkedin.com
             icon: fab fa-linkedin-in
-      - name: "Diana Perterson"
-        role: "Lead Developer"
-        image: assets/img/team/500x500.jpg
+      - name: "Nguyễn Văn Hải"
+        role: "Thạc sỹ/NCS"
+        image: assets/img/team/nguyenvanhai.jpeg
         social:
           - url: https://twitter.com
             icon: fab fa-twitter
@@ -130,8 +130,8 @@ en: &DEFAULT_EN
             icon: fab fa-linkedin-in
 
   contact:
-    title: "Contact Us"
-    text: "Lorem ipsum or call 123456789"
+    title: "Liên hệ với chúng tôi"
+    text: "Gửi mail hoặc gọi trực tiếp vào số điện thoại 0785.6666.77"
     section: contact
     name: "Name*"
     name-validation: "Please enter your name."
@@ -153,7 +153,7 @@ en: &DEFAULT_EN
         icon: "fab fa-facebook-f"
       - url: https://linkedin.com
         icon: "fab fa-linkedin-in"
-      - url: https://github.com/raviriley/agency-jekyll-theme
+      - url: https://github.com
         icon: "fab fa-github"
       - url: https://instagram.com
         icon: "fab fa-instagram"

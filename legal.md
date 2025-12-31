@@ -1,37 +1,37 @@
 ---
 layout: page
-title: Privacy Policy
+title: Chính sách Bảo mật
 ---
 <div class="col-lg-12 text-center">
-	<h2 class="section-heading text-uppercase">Privacy Policy</h2>
+    <h2 class="section-heading text-uppercase">Chính sách Bảo mật</h2>
 </div>
 
-This Privacy Policy describes how your personal information is collected, used, and shared when you visit {{ site.title }} (the “Site”).
+Chính sách Bảo mật này mô tả cách thông tin cá nhân của bạn được thu thập, sử dụng và chia sẻ khi bạn truy cập {{ site.title }} (gọi tắt là “Trang web”).
 
-**PERSONAL INFORMATION WE COLLECT**
+**THÔNG TIN CÁ NHÂN CHÚNG TÔI THU THẬP**
 
 {% if site.analytics.google %}
 
-Automatically Collected (Google Analytics):
+Thông tin được thu thập tự động (Google Analytics):
 
-When you visit the Site, we automatically receive information about your device from your browser, such as your IP address. As you browse the Site, we also collect information about how you interact with the Site. We refer to this automatically-collected information as “Device Information”.
+Khi bạn truy cập Trang web, chúng tôi sẽ tự động nhận được thông tin về thiết bị của bạn từ trình duyệt, chẳng hạn như địa chỉ IP. Trong quá trình bạn lướt xem Trang web, chúng tôi cũng thu thập thông tin về cách bạn tương tác với Trang web. Chúng tôi gọi các thông tin được thu thập tự động này là “Thông tin Thiết bị”.
 
-We collect Device Information using cookies. “Cookies” are data files that are placed on your device. For more information about cookies and how to disable them, visit http://www.allaboutcookies.org.
+Chúng tôi thu thập Thông tin Thiết bị bằng cách sử dụng cookie. “Cookie” là các tệp dữ liệu được đặt trên thiết bị của bạn. Để biết thêm thông tin về cookie và cách vô hiệu hóa chúng, vui lòng truy cập http://www.allaboutcookies.org.
 
-We do this using Google Analytics: <https://www.google.com/intl/en/policies/privacy/>.
+Chúng tôi thực hiện việc này thông qua Google Analytics: <https://www.google.com/intl/vi/policies/privacy/>.
 
-You can opt-out of Google Analytics here: <https://tools.google.com/dlpage/gaoptout>.
+Bạn có thể từ chối Google Analytics tại đây: <https://tools.google.com/dlpage/gaoptout>.
 
 {% else %}
 
-We do not collect any data about you or use any cookies.
+Chúng tôi không thu thập bất kỳ dữ liệu nào về bạn hoặc sử dụng bất kỳ loại cookie nào.
 
 {% endif %}
 
-**CHANGES**
+**THAY ĐỔI**
 
-We may update this privacy policy from time to time for personal, operational, legal, or regulatory reasons.
+Chúng tôi có thể cập nhật chính sách bảo mật này theo thời gian để phù hợp với những thay đổi về vận hành, pháp lý hoặc vì lý do quản lý.
 
-**CONTACT US**
+**LIÊN HỆ VỚI CHÚNG TÔI**
 
-For more information about our privacy practices or if you have questions, please contact us by email at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.
+Để biết thêm thông tin về các quy định bảo mật hoặc nếu bạn có thắc mắc, vui lòng liên hệ với chúng tôi qua email tại địa chỉ: <a href="mailto:{{ site.email }}">{{ site.email }}</a>.

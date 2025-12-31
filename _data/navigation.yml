@@ -11,20 +11,20 @@
 # -----------------
 en: &DEFAULT_EN
   nav:
-    - title: "Services"
+    - title: "Dịch vụ"
       section: services
-    - title: "Portfolio"
+    - title: "Dự án"
       section: portfolio
-    - title: "About"
+    - title: "Giới thiệu"
       section: about
     - title: "Timeline"
       section: timeline
-    - title: "Team"
+    - title: "Chuyên gia"
       section: team
-    - title: "Contact"
+    - title: "Liên hệ"
       section: contact
-    - title: "Theme Source"
-      url: https://github.com/raviriley/agency-jekyll-theme/
+    # - title: "Theme Source"
+    #   url: https://github.com/raviriley/agency-jekyll-theme/
 en-US:
   <<: *DEFAULT_EN
 en-CA:
