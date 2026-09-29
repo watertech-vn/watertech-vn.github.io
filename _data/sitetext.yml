@@ -17,61 +17,81 @@ en: &DEFAULT_EN
     buttonlink: "#services"
 
   services:
-    title: "Dịch vụ"
-    text: "Mô tả dịch vụ"
+    title: "Lĩnh vực"
+    text: "Kết hợp chuyên môn tài nguyên nước – môi trường với công nghệ số, iWAT cung cấp giải pháp từ nghiên cứu khoa học đến ứng dụng thực tiễn cho cơ quan quản lý, doanh nghiệp và cộng đồng."
     section: services
     list:
-      - title: "Tài Nguyên nước"
-        desc: "Mô tả tài nguyên nước , fjsdkljfklasjefilkasjlidfkjqwoiejrhfijfklsa  ksdjfklsahdfiosahifhjsaf."
+      - title: "Tài nguyên nước"
+        desc: "Mô hình hóa thủy văn – thủy lực, đánh giá và dự báo nguồn nước mặt, nước dưới đất; kiểm kê tài nguyên nước, quy hoạch và kế hoạch sử dụng nước."
         icon: fas fa-water #find more at https://fontawesome.com/icons
-      - title: "WebGIS AI"
-        desc: "Mô tả WebGIS....."
-        icon: fas fa-water
-      - title: "[Môi trường](https://en.wikipedia.org/wiki/Markdown)"
-        desc: "Mô tả **Môi trường** .dfhjklasdjhfklsadj fdikfjlkasdjf"
+      - title: "Cảnh báo lũ & rủi ro thiên tai"
+        desc: "Dự báo mực nước, lưu lượng và cảnh báo lũ theo thời gian thực; đánh giá ngập lụt, sụt lún và quản lý rủi ro thiên tai tại lưu vực và đô thị."
+        icon: fas fa-cloud-showers-heavy
+      - title: "WebGIS & bản sao số"
+        desc: "Xây dựng WebGIS, nền tảng dữ liệu không gian và bản sao số (digital twin) cho lưu vực sông, đô thị và mạng lưới hạ tầng nước."
+        icon: fas fa-map-marked-alt
+      - title: "AI, Big Data & hỗ trợ ra quyết định"
+        desc: "Ứng dụng trí tuệ nhân tạo, dữ liệu lớn, viễn thám và IoT; phát triển các hệ thống hỗ trợ ra quyết định (DSS) cho quản lý tài nguyên nước."
+        icon: fas fa-project-diagram
+      - title: "Kỹ thuật cấp thoát nước đô thị & khu công nghiệp"
+        desc: "Chuẩn hóa dữ liệu GIS mạng lưới cấp nước, mô hình thủy lực WaterGEMS; đánh giá và đề xuất giải pháp cho hệ thống thoát nước mưa, nước thải."
+        icon: fas fa-city
+      - title: "Môi trường & hệ sinh thái"
+        desc: "Quan trắc, đánh giá chất lượng nước; bảo vệ, phục hồi hệ sinh thái carbon xanh vùng ven biển; giải pháp dựa vào thiên nhiên, tái sử dụng nước mưa."
         icon: fas fa-seedling
 
   portfolio:
-    title: "Portfolio"
-    text: "Các dự án tiêu biểu."
+    title: "Dự án"
+    text: "Các nhiệm vụ khoa học và công nghệ, dự án hợp tác quốc tế và hợp đồng tư vấn tiêu biểu mà Viện đã và đang thực hiện."
     section: portfolio
     closebutton: "Close Project"
 
   timeline:
-    title: "Timeline"
-    text: "Lorem ipsum timeline"
+    title: "Chặng đường phát triển"
+    text: "Những dấu mốc của Viện Công nghệ Tài nguyên nước và Môi trường"
     section: timeline
     # left is the default
     #start_align: "left"
     events:
-      - title: "Thành lập"
-        year: "2009-2011"
-        desc: "Mô tả 1"
-        image: assets/img/timeline/1.jpg
-        alt:
-      - title: "Giai đoạn 2"
-        year: "March 2011"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-        image: assets/img/timeline/2.jpg
-        alt:
-      - title: "Giai đoạn 3"
-        year: "2019"
-        desc: "Ravi Riley converted Agency, a Bootstrap-based theme, into a Jekyll theme. The Jekyll theme can be installed as a Ruby gem, or remotely. For more information, visit the documentation."
-        image: assets/img/timeline/3.jpg
-        alt: image alt text
-      - title: "Giai đoạn 4"
-        year: "2009-2011"
-        desc: "Your description here, **Markdown** is fully supported."
-        image: assets/img/timeline/4.jpg
-        alt:
-        # you can enforce the alignment
-        align: right
-    end: "Be Part <br> of Our <br> Story!"
+      - title: "Thành lập Viện"
+        year: "2021"
+        desc: "Viện Công nghệ Tài nguyên nước và Môi trường (iWAT) được thành lập, định hướng nghiên cứu và ứng dụng công nghệ trong quản lý tài nguyên nước và môi trường."
+        image: assets/img/timeline/icon-2021.svg
+        alt: Năm 2021
+      - title: "Mở rộng tư vấn tài nguyên nước"
+        year: "2022"
+        desc: "Hợp tác với Nippon Koei trong khảo sát, phân tích dữ liệu nước dưới đất; thực hiện hợp phần tài nguyên nước và thủy lợi cho Quy hoạch tỉnh Bình Dương; giám sát dự báo nguồn nước lưu vực Đông Nam Bộ và chất lượng nước Hệ thống thủy lợi Dầu Tiếng; hợp tác nghiên cứu mô hình AI với IIT Guwahati (Ấn Độ)."
+        image: assets/img/timeline/icon-2022.svg
+        alt: Năm 2022
+      - title: "Phát triển hệ thống hỗ trợ ra quyết định"
+        year: "2023"
+        desc: "Xây dựng 07 bài toán và phần mềm hỗ trợ ra quyết định (DSS) cho Trung tâm Đồng bằng sông Cửu Long thuộc dự án WB9."
+        image: assets/img/timeline/icon-2023.svg
+        alt: Năm 2023
+      - title: "Xây dựng nền tảng công nghệ riêng"
+        year: "2024"
+        desc: "Hoàn thiện phần mềm tính toán thủy động lực, chất lượng nước tích hợp hệ thống hỗ trợ ra quyết định; tham gia dự án quốc tế SAGA về tầng chứa nước xuyên biên giới Campuchia – Việt Nam cùng AIT."
+        image: assets/img/timeline/icon-2024.svg
+        alt: Năm 2024
+      - title: "Chủ trì nhiệm vụ KH&CN các cấp"
+        year: "2025"
+        desc: "Chủ trì nhiệm vụ cấp quốc gia KC.09 về hệ sinh thái carbon xanh vùng bờ Nam Trung Bộ, nhiệm vụ cấp tỉnh về thu gom, tái sử dụng nước mưa tại TP.HCM và đề tài NAFOSTED về bản sao số cảnh báo lũ lưu vực sông Lam."
+        image: assets/img/timeline/icon-2025.svg
+        alt: Năm 2025
+      - title: "Chuyển đổi số ngành nước"
+        year: "2026"
+        desc: "Nghiệm thu nhiệm vụ nước mưa TP.HCM; triển khai NHABEGIS và chuẩn hóa dữ liệu WaterGEMS cho Cấp nước Nhà Bè; đánh giá thủy lực KCN Biên Hòa 2; phối hợp dự án FLUT về bản sao số đô thị cùng TU Dresden (Đức)."
+        image: assets/img/timeline/icon-2026.svg
+        alt: Năm 2026
+    end: "Cùng <br> kiến tạo <br> tương lai"
 
   about:
-    title: "About Us"
-    text: "our story"
-    body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported."
+    title: "Về chúng tôi"
+    text: "Viện Công nghệ Tài nguyên nước và Môi trường (iWAT)"
+    body: |
+      Thành lập năm 2021, **Viện Công nghệ Tài nguyên nước và Môi trường (iWAT)** là tổ chức khoa học và công nghệ hoạt động trong lĩnh vực nghiên cứu, ứng dụng và chuyển giao công nghệ về tài nguyên nước và môi trường. Viện tập trung vào mô hình hóa thủy văn – thủy lực, WebGIS, bản sao số, trí tuệ nhân tạo và hệ thống hỗ trợ ra quyết định, hướng tới quản lý tài nguyên nước bền vững và thích ứng với biến đổi khí hậu.
+
+      Viện chủ trì và thực hiện các nhiệm vụ khoa học và công nghệ cấp quốc gia, cấp tỉnh và đề tài do Quỹ NAFOSTED tài trợ; đồng thời tư vấn cho doanh nghiệp cấp nước, khu công nghiệp và các tổ chức quốc tế như Nippon Koei. Viện hợp tác nghiên cứu với Asian Institute of Technology (AIT), Trường Đại học Kỹ thuật Dresden (Đức) và Indian Institute of Technology Guwahati (Ấn Độ).
     section: about
 
   clients:
@@ -94,44 +114,83 @@ en: &DEFAULT_EN
 
   team:
     title: "Chuyên gia"
-    text: "Lorem ipsum dolor sit amet consectetur."
-    subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
+    text: "Đội ngũ nghiên cứu và chuyên gia của Viện"
+    subtext: "Đội ngũ của iWAT gồm các phó giáo sư, tiến sĩ, thạc sĩ và kỹ sư về thủy văn, thủy lực, nước dưới đất, môi trường, GIS và công nghệ thông tin, cùng mạng lưới cộng tác viên trong nước và quốc tế. Đội ngũ đã chủ trì và tham gia nhiều nhiệm vụ khoa học và công nghệ các cấp, đồng thời trực tiếp phát triển các nền tảng WebGIS, bản sao số và hệ thống hỗ trợ ra quyết định."
     section: team
     people:
-      - name: "Trần Đăng An"
-        role: "Phó giáo sư/ Tiến sỹ"
-        image: assets/img/team/trandangan.jpeg
+      # group: nhóm hiển thị (theo thứ tự xuất hiện)
+      # position: chức vụ · field: chuyên môn · org: nơi công tác
+      - name: "TS. Vũ Thị Hoài Thu"
+        group: "Ban lãnh đạo Viện"
+        position: "Viện trưởng"
+        field: "Kỹ thuật môi trường nước"
+        image: assets/img/team/vuthihoaithu.jpg
         social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
-          - url: https://linkedin.com
-            icon: fab fa-linkedin-in
-      - name: "Vũ Thị Hoài Thu"
-        role: "Tiến sỹ"
-        image: assets/img/team/trandangan.jpeg
-        social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
-          - url: https://linkedin.com
-            icon: fab fa-linkedin-in
-      - name: "Nguyễn Văn Hải"
-        role: "Thạc sỹ/NCS"
+          - url: https://scholar.google.com/citations?user=gfGfhyMAAAAJ
+            icon: fas fa-graduation-cap
+      - name: "NCS. ThS. Nguyễn Văn Hải"
+        group: "Ban lãnh đạo Viện"
+        position: "Phó Viện trưởng"
+        field: "Viễn thám, động lực môi trường"
         image: assets/img/team/nguyenvanhai.jpeg
         social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
-          - url: https://linkedin.com
-            icon: fab fa-linkedin-in
+          - url: https://www.researchgate.net/profile/Nguyen-Hai-41
+            icon: fas fa-graduation-cap
+
+      - name: "PGS. TS. Triệu Ánh Ngọc"
+        group: "Đội ngũ chuyên gia"
+        field: "Thủy văn, tài nguyên nước, môi trường"
+        org: "Trường Đại học Thủy lợi"
+        social:
+          - url: https://scholar.google.com/citations?user=r6vOGCoAAAAJ
+            icon: fas fa-graduation-cap
+      - name: "PGS. TS. Trần Đăng An"
+        group: "Đội ngũ chuyên gia"
+        field: "Thủy văn, tài nguyên nước, môi trường"
+        org: "Trường Đại học Thủy lợi"
+        image: assets/img/team/trandangan.jpg
+        social:
+          - url: https://scholar.google.com/citations?user=XURuRQQAAAAJ
+            icon: fas fa-graduation-cap
+      - name: "TS. Lê Công Chính"
+        group: "Đội ngũ chuyên gia"
+        field: "Địa sinh thái môi trường"
+        org: "Trường Đại học Thủy lợi"
+      - name: "TS. Đào Đức Anh"
+        group: "Đội ngũ chuyên gia"
+        field: "Thủy văn, thủy lực"
+        org: "Trường Đại học Thủy lợi"
+      - name: "TS. Trần Thành Long"
+        group: "Đội ngũ chuyên gia"
+        field: "Kỹ thuật tài nguyên nước"
+        org: "Trường Đại học Bách khoa – ĐHQG TP.HCM"
+      - name: "NCS. ThS. Lê Văn Tiến Hưng"
+        group: "Đội ngũ chuyên gia"
+        field: "Kỹ thuật tài nguyên nước"
+        org: "Trường Đại học Thủy lợi"
+      - name: "NCS. ThS. Đoàn Thanh Vũ"
+        group: "Đội ngũ chuyên gia"
+        field: "Kỹ thuật tài nguyên nước"
+        org: "Trường Đại học Tài nguyên và Môi trường TP.HCM"
+      - name: "ThS. Nguyễn Thanh Hương"
+        group: "Đội ngũ chuyên gia"
+        field: "Kỹ thuật cấp thoát nước"
+      - name: "KS. Đặng Thị Kiều Oanh"
+        group: "Đội ngũ chuyên gia"
+        field: "Kỹ thuật cấp thoát nước"
+      - name: "KS. Lê Tấn Đạt"
+        group: "Đội ngũ chuyên gia"
+        field: "Kỹ thuật xây dựng công trình thủy"
+      - name: "KS. Hồ Minh Trí"
+        group: "Đội ngũ chuyên gia"
+        field: "Kỹ thuật cấp thoát nước"
 
   contact:
     title: "Liên hệ với chúng tôi"
-    text: "Gửi mail hoặc gọi trực tiếp vào số điện thoại 0785.6666.77"
+    text: >-
+      <span class="contact-info"><a href="mailto:info@watertech.vn"><i class="fas fa-envelope"></i> info@watertech.vn</a></span>
+      <span class="contact-info"><a href="tel:+84785666677"><i class="fas fa-phone-alt"></i> 0785.6666.77</a></span>
+      <span class="contact-info"><i class="fas fa-map-marker-alt"></i> Số 34 đường D2, Khu phố 18, phường Long Trường, TP. HCM</span>
     section: contact
     name: "Name*"
     name-validation: "Please enter your name."
@@ -147,16 +206,18 @@ en: &DEFAULT_EN
   footer:
     legal: "Privacy Policy"
     social:
-      - url: https://twitter.com
-        icon: "fab fa-twitter"
-      - url: https://facebook.com
-        icon: "fab fa-facebook-f"
-      - url: https://linkedin.com
-        icon: "fab fa-linkedin-in"
-      - url: https://github.com
+      # - url: https://twitter.com
+      #   icon: "fab fa-twitter"
+      # - url: https://facebook.com
+      #   icon: "fab fa-facebook-f"
+      # - url: https://linkedin.com
+      #   icon: "fab fa-linkedin-in"
+      - url: mailto:info@watertech.vn
+        icon: "fas fa-envelope"
+      - url: https://github.com/watertech-vn
         icon: "fab fa-github"
-      - url: https://instagram.com
-        icon: "fab fa-instagram"
+      # - url: https://instagram.com
+      #   icon: "fab fa-instagram"
 en-US:
   <<: *DEFAULT_EN
 en-CA:
@@ -306,16 +367,16 @@ es: &DEFAULT_ES
   footer:
     legal: "Política de Privacidad"
     social:
-      - url: https://twitter.com
-        icon: "fab fa-twitter"
-      - url: https://facebook.com
-        icon: "fab fa-facebook-f"
-      - url: https://linkedin.com
-        icon: "fab fa-linkedin-in"
-      - url: https://github.com/raviriley/agency-jekyll-theme
+      # - url: https://twitter.com
+      #   icon: "fab fa-twitter"
+      # - url: https://facebook.com
+      #   icon: "fab fa-facebook-f"
+      # - url: https://linkedin.com
+      #   icon: "fab fa-linkedin-in"
+      - url: https://github.com/watertech-vn
         icon: "fab fa-github"
-      - url: https://instagram.com
-        icon: "fab fa-instagram"
+      # - url: https://instagram.com
+      #   icon: "fab fa-instagram"
 es-ES:
   <<: *DEFAULT_ES
 es-CO:

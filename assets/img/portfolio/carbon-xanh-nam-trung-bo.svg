@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" font-family="Montserrat, 'Segoe UI', Arial, sans-serif">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#004a8c"/><stop offset="1" stop-color="#0a8f6a"/></linearGradient></defs>
+<rect width="800" height="600" fill="url(#g)"/>
+<path d="M0 470 Q100 430 200 470 T400 470 T600 470 T800 470 V600 H0Z" fill="#fff" opacity=".12"/>
+<path d="M0 510 Q100 475 200 510 T400 510 T600 510 T800 510 V600 H0Z" fill="#fff" opacity=".12"/>
+<text x="60" y="190" font-size="26" font-weight="600" fill="#cfe8ff" letter-spacing="1">CẤP QUỐC GIA · KC.09/21-30</text>
+<rect x="60" y="215" width="80" height="5" fill="#28a745"/>
+<text x="60" y="300" font-size="48" font-weight="700" fill="#fff">Hệ sinh thái carbon xanh</text><text x="60" y="368" font-size="52" font-weight="700" fill="#fff">vùng bờ Nam Trung Bộ</text>
+</svg>

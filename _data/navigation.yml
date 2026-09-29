@@ -11,13 +11,13 @@
 # -----------------
 en: &DEFAULT_EN
   nav:
-    - title: "Dịch vụ"
+    - title: "Lĩnh vực"
       section: services
     - title: "Dự án"
       section: portfolio
     - title: "Giới thiệu"
       section: about
-    - title: "Timeline"
+    - title: "Chặng đường"
       section: timeline
     - title: "Chuyên gia"
       section: team

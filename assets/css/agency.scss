@@ -1,0 +1,351 @@
+---
+---
+@charset "utf-8";
+// Core variables and mixins
+@import "base/variables.scss";
+@import "base/mixins.scss";
+
+// Custom Fonts
+{% if site.data.style.fonts %}
+  {% for font in site.data.style.fonts %}
+    @mixin {{font.for}}-font {
+      font-family: "{{ font.name }}", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+  {% endfor %}
+{% endif %}
+
+// Custom colors
+$primary: {{ site.data.style.highlight | default: "#fed136" }} !default;
+$white: {{ site.data.style.white | default: "#fff" }} !default;
+$black: {{ site.data.style.black | default: "#000" }} !default;
+
+// Custom Images
+$header-image: "{{ site.data.style.header-image }}";
+$contact-image: "{{ site.data.style.contact-image }}";
+
+// Global CSS
+@import "base/page.scss";
+
+// Components
+@import "components/buttons.scss";
+@import "components/navbar.scss";
+@import "components/client-scroll.scss";
+
+// Layout
+@import "layout/masthead.scss";
+@import "layout/services.scss";
+@import "layout/portfolio.scss";
+@import "layout/timeline.scss";
+@import "layout/team.scss";
+@import "layout/contact.scss";
+@import "layout/footer.scss";
+
+// Custom: mọi thẻ dự án cao bằng nhau
+#portfolio .portfolio-item {
+  display: flex;
+  flex-direction: column;
+  .portfolio-link img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .portfolio-caption {
+    flex: 1 1 auto;
+    width: 100%;
+    h4,
+    p {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+    h4 {
+      font-size: 1.3rem;
+      line-height: 1.3;
+      height: 2.6em;
+    }
+    p {
+      line-height: 1.5;
+      height: 3em;
+    }
+  }
+}
+
+// Custom: nội dung chi tiết dự án (popup)
+.portfolio-modal .modal-body {
+  p:not(.item-intro) {
+    text-align: left;
+  }
+  ul:not(.list-inline) {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 30px;
+    text-align: left;
+    li {
+      position: relative;
+      padding-left: 1.75rem;
+      margin-bottom: 0.5rem;
+      &::before {
+        // dấu đầu dòng hình giọt nước
+        content: "";
+        position: absolute;
+        left: 0.3rem;
+        top: 0.6em;
+        width: 0.55rem;
+        height: 0.55rem;
+        background: $primary;
+        border-radius: 0 50% 50% 50%;
+        transform: rotate(45deg);
+      }
+    }
+  }
+  ul.list-inline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 1.5rem;
+    margin: 0 0 30px;
+    padding: 1rem 1.25rem;
+    text-align: left;
+    background: rgba($primary, 0.06);
+    border-left: 4px solid $primary;
+    border-radius: 4px;
+    li {
+      margin: 0;
+    }
+    @media (max-width: 575px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Custom: header kiểu "Liquid Glass" — thanh menu nổi, kính mờ, bo tròn
+$glass-text: #1d1d1f;
+
+#mainNav,
+#mainNav.navbar-shrink {
+  top: 12px;
+  left: 16px;
+  right: 16px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 8px 12px 8px 24px;
+  border-radius: 28px;
+  background-color: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.25),
+    0 8px 32px rgba(0, 30, 60, 0.18);
+  transition: background-color 0.3s, box-shadow 0.3s;
+
+  // vệt sáng phản chiếu trên mặt kính
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 45%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+  .navbar-brand {
+    padding: 0;
+    img {
+      height: 52px;
+      width: auto;
+    }
+  }
+  .navbar-toggler {
+    padding: 10px 16px;
+    border-radius: 999px;
+    color: $primary;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 8px rgba(0, 30, 60, 0.12);
+    // chỉ hiện biểu tượng ☰, ẩn chữ "Menu" (aria-label vẫn giữ cho trình đọc màn hình)
+    font-size: 0;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    i {
+      font-size: 18px;
+    }
+  }
+  .navbar-nav .nav-item .nav-link {
+    color: $glass-text;
+    font-weight: 700;
+    font-size: 95%;
+    padding: 0.7em 1.2em !important;
+    border-radius: 999px;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+    &:hover,
+    &.active {
+      color: $primary;
+      background-color: rgba(255, 255, 255, 0.75);
+      box-shadow: inset 0 1px 0 #fff, 0 2px 8px rgba(0, 30, 60, 0.12);
+    }
+  }
+}
+
+#mainNav.navbar-shrink {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+// laptop nhỏ: thu chữ lại một chút để menu không rớt xuống 2 dòng
+@media (min-width: 992px) and (max-width: 1199px) {
+  #mainNav .navbar-nav .nav-item .nav-link {
+    font-size: 82%;
+    padding: 0.7em 0.8em !important;
+  }
+}
+
+@media (max-width: 991px) {
+  #mainNav,
+  #mainNav.navbar-shrink {
+    padding: 8px 10px 8px 16px;
+    border-radius: 22px;
+    .navbar-collapse {
+      padding: 8px 0 4px;
+    }
+  }
+}
+
+// trình duyệt không hỗ trợ kính mờ: dùng nền đặc hơn để chữ vẫn dễ đọc
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  #mainNav,
+  #mainNav.navbar-shrink {
+    background-color: rgba(255, 255, 255, 0.92);
+  }
+}
+
+// Custom: thẻ dự án dáng lá / giọt nước, phần chữ kính mờ (Liquid Glass)
+$card-radius-big: 56px;
+$card-radius-small: 14px;
+
+#portfolio {
+  position: relative;
+  // nền loang màu nước và lá để hiệu ứng kính có chiều sâu
+  background-image:
+    radial-gradient(circle at 8% 12%, rgba(30, 136, 229, 0.22), transparent 32%),
+    radial-gradient(circle at 92% 38%, rgba(76, 187, 74, 0.2), transparent 30%),
+    radial-gradient(circle at 20% 78%, rgba(10, 143, 106, 0.18), transparent 32%),
+    radial-gradient(circle at 85% 92%, rgba(0, 74, 140, 0.16), transparent 30%),
+    linear-gradient(180deg, #eef6fb 0%, #f1f8f1 100%);
+
+  .portfolio-item {
+    margin-bottom: 30px;
+    transition: transform 0.35s ease;
+    &:hover {
+      transform: translateY(-6px);
+    }
+
+    .portfolio-link {
+      max-width: none;
+      overflow: hidden;
+      border-radius: $card-radius-big $card-radius-small 0 0;
+      img {
+        transition: transform 0.6s ease;
+      }
+      &:hover img {
+        transform: scale(1.06);
+      }
+      .portfolio-hover {
+        z-index: 3;
+        background: linear-gradient(135deg, rgba(0, 74, 140, 0.8), rgba(10, 143, 106, 0.75));
+      }
+    }
+
+    .portfolio-caption {
+      position: relative;
+      max-width: none;
+      padding: 22px 24px 26px;
+      border-radius: 0 0 $card-radius-big $card-radius-small;
+      background-color: rgba(255, 255, 255, 0.55);
+      -webkit-backdrop-filter: blur(18px) saturate(170%);
+      backdrop-filter: blur(18px) saturate(170%);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-top: none;
+      box-shadow:
+        inset 0 -1px 0 rgba(255, 255, 255, 0.6),
+        0 16px 30px -14px rgba(0, 50, 90, 0.35);
+
+      // "mặt nước": vạch chuyển màu xanh dương – xanh lá ngăn cách ảnh và chữ
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #1e88e5, #0a8f6a, #4cbb4a);
+      }
+
+      h4 {
+        color: #0b2e4f;
+      }
+      p {
+        color: #2f6b55 !important; // ghi đè .text-muted của theme
+      }
+    }
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  #portfolio .portfolio-item .portfolio-caption {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+// Custom: thông tin liên hệ (email, điện thoại, địa chỉ) dưới tiêu đề section Liên hệ
+#contact .contact-info {
+  display: inline-block;
+  margin: 0.35rem 1rem;
+  font-style: normal;
+  a {
+    color: inherit;
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+    }
+  }
+  i {
+    margin-right: 0.4rem;
+    color: $primary;
+  }
+}
+
+// Custom: section Chuyên gia — giữ kiểu gốc của theme, chỉ thêm các dòng chức vụ / chuyên môn / nơi công tác
+#team {
+  .team-intro {
+    margin-bottom: 40px;
+  }
+  .team-member {
+    h4 {
+      margin-bottom: 4px;
+    }
+    .team-position {
+      display: block;
+      font-weight: 700;
+      color: $primary;
+    }
+    .team-field,
+    .team-org {
+      margin: 0;
+      color: #6c757d;
+    }
+    .team-org {
+      font-size: 0.9rem;
+    }
+    .social-buttons {
+      margin-top: 12px;
+    }
+  }
+}
