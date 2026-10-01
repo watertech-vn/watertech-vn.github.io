@@ -14,25 +14,46 @@
 #theme: jekyll-agency
 remote_theme: raviriley/agency-jekyll-theme
 
-url    : "" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "/agency-jekyll-theme-starter" # the subpath of your site, e.g. /blog
+url    : "http://info.watertech.vn" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
 title      : VIỆN CÔNG NGHỆ TÀI NGUYÊN NƯỚC VÀ MÔI TRƯỜNG.
 email      : info@watertech.vn #this is also the email contact forms will go to
 phone: 0785.6666.77
 Address: Số 34 đường D2, Khu phố 18, phường Long Trường, TP. HCM
-description: "Agency Bootstrap theme converted to a Jekyll theme, plus new features: Google Analytics, Markdown support, custom pages, and more!"
+description: "Viện nghiên cứu và phát triển công nghệ về tài nguyên nước, môi trường, GIS/WebGIS, IoT quan trắc và hệ thống hỗ trợ ra quyết định."
 author     : Your Name
 logo:     #optional, defaults to site title
-  path: assets\img\clients\logo_iwat.png
+  path: assets/img/clients/logo_iwat.png
   height: 60 #height in px, defaults to 52px
 
-locale: "en-US" # See available languages in _data/sitetext.yml
+# Đa ngôn ngữ: ngôn ngữ mặc định phục vụ tại "/", các ngôn ngữ khác tại "/<mã>/"
+# (ví dụ "/en/"). Văn bản giao diện nằm trong _data/sitetext.yml và
+# _data/navigation.yml, theo khóa là mã ngôn ngữ.
+locale: "vi" # ngôn ngữ mặc định
+languages: ["vi", "en"]
 
 analytics:
   google: #Google Analytics tracking code here
 
 collections:
   portfolio:
+
+# Gán ngôn ngữ cho từng trang/dự án theo thư mục:
+# trang tiếng Anh đặt trong en/, dự án tiếng Anh đặt trong _portfolio/en/
+defaults:
+  - scope:
+      path: ""
+    values:
+      lang: "vi"
+  - scope:
+      path: "en"
+    values:
+      lang: "en"
+  - scope:
+      path: "_portfolio/en"
+      type: "portfolio"
+    values:
+      lang: "en"
 
 markdown: kramdown
 

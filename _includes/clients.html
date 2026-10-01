@@ -1,0 +1,29 @@
+<!-- Clients: dải logo đơn vị phối hợp chạy ngang -->
+{%- include i18n.html %}
+{%- assign clients = t.clients %}
+<section class="clients-section" id="{{ clients.section | default: "clients" }}">
+  {%- if clients.title %}
+  <h2 class="clients-title">{{ clients.title }}</h2>
+  {%- endif %}
+  <div class="clients-marquee">
+    {%- comment -%}
+      Dải gồm 2 nửa giống hệt nhau, mỗi nửa lặp danh sách 2 lần cho đủ dài trên màn hình rộng;
+      hoạt ảnh dịch đúng -50% nên vòng lặp liền mạch. Chỉ bộ logo đầu tiên được trình đọc màn hình/phím Tab nhận.
+    {%- endcomment -%}
+    <div class="clients-track" style="--clients-duration: {{ clients.speed | default: 30 }}s">
+      {%- for half in (1..2) %}{% for round in (1..2) %}{% for client in clients.list %}
+      {%- if half == 1 and round == 1 %}{% assign clone = false %}{% else %}{% assign clone = true %}{% endif %}
+      <div class="client-item{% if clone %} is-clone{% endif %}"{% if clone %} aria-hidden="true"{% endif %}>
+        {%- if client.url and client.url != "" %}
+        <a href="{{ client.url }}" target="_blank" rel="noopener" title="{{ client.title }}"{% if clone %} tabindex="-1"{% endif %}>
+          <img src="{{ client.logo | prepend: '/' | relative_url }}" alt="{{ client.title }}" loading="lazy">
+        </a>
+        {%- else %}
+        <img src="{{ client.logo | prepend: '/' | relative_url }}" alt="{{ client.title }}" title="{{ client.title }}" loading="lazy">
+        {%- endif %}
+      </div>
+      {%- endfor %}{% endfor %}{% endfor %}
+    </div>
+  </div>
+</section>
+<!-- End Clients -->

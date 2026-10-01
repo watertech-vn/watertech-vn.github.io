@@ -1,0 +1,16 @@
+{%- comment -%}
+  Tạo mảng `projects` theo ngôn ngữ hiện tại: lấy danh sách dự án tiếng Việt
+  (_portfolio/*.md) làm gốc; với ngôn ngữ khác, dùng bản dịch cùng tên file
+  (ví dụ _portfolio/en/project01.md) nếu có, nếu chưa có thì giữ bản gốc.
+{%- endcomment -%}
+{%- assign base_projects = site.portfolio | where: "lang", site.locale -%}
+{%- if lang == site.locale -%}
+  {%- assign projects = base_projects -%}
+{%- else -%}
+  {%- assign translated = site.portfolio | where: "lang", lang -%}
+  {%- assign projects = "" | split: "" -%}
+  {%- for p in base_projects -%}
+    {%- assign tr = translated | where: "slug", p.slug | first -%}
+    {%- if tr -%}{%- assign projects = projects | push: tr -%}{%- else -%}{%- assign projects = projects | push: p -%}{%- endif -%}
+  {%- endfor -%}
+{%- endif -%}

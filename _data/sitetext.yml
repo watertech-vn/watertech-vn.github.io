@@ -1,15 +1,24 @@
 #
+# Văn bản hiển thị trên trang, theo ngôn ngữ.
 # Work based on https://github.com/mmistakes/minimal-mistakes/blob/master/_data/ui-text.yml
 #
-# Configuration: Add to _config.yml
-# locale: "en-US"  [YOUR PREFERRED LOCALE]
+# - Khóa cấp cao nhất là mã ngôn ngữ, khớp với `languages` trong _config.yml.
+# - Tiếng Việt (vi) là mặc định, phục vụ tại "/"; tiếng Anh (en) tại "/en/".
+# - Khi thêm/sửa nội dung (dự án, chuyên gia, mốc thời gian...), nhớ cập nhật cả hai khối.
 #
-# How to use:
-# {{ site.data.ui-text[site.locale].<var_name> | default: 'text' }}
+# Cách dùng trong include: {% include i18n.html %} rồi {{ t.<khóa> }}
 
-# English (default)
-# -----------------
-en: &DEFAULT_EN
+# Tiếng Việt (mặc định)
+# ---------------------
+vi:
+  language:
+    name: "Tiếng Việt"
+    short: "VI"
+
+  meta:
+    title: "VIỆN CÔNG NGHỆ TÀI NGUYÊN NƯỚC VÀ MÔI TRƯỜNG"
+    description: "Viện nghiên cứu và phát triển công nghệ về tài nguyên nước, môi trường, GIS/WebGIS, IoT quan trắc và hệ thống hỗ trợ ra quyết định."
+
   header:
     title: ""
     text: Giải pháp thông minh cho tương lai bền vững
@@ -44,7 +53,7 @@ en: &DEFAULT_EN
     title: "Dự án"
     text: "Các nhiệm vụ khoa học và công nghệ, dự án hợp tác quốc tế và hợp đồng tư vấn tiêu biểu mà Viện đã và đang thực hiện."
     section: portfolio
-    closebutton: "Close Project"
+    closebutton: "Đóng"
 
   timeline:
     title: "Chặng đường phát triển"
@@ -95,10 +104,10 @@ en: &DEFAULT_EN
     section: about
 
   clients:
+    title: "Đơn vị phối hợp"
     section: clients
-    max-height: 100px
-    horizontal-scrolling: "" #"yes/no"
-    list:
+    speed: 30 # số giây cho một vòng chạy; số càng lớn chạy càng chậm
+    list: &CLIENTS
       - title: "Tecotec Group"
         url: https://www.tecotec.com.vn/
         logo: assets/img/clients/tecotec-logo.png
@@ -111,11 +120,20 @@ en: &DEFAULT_EN
       - title: "Water point"
         url: ""
         logo: assets/img/clients/cuanam-logo.png
+      - title: "Viện Hải dương học"
+        url: "https://vnio.org.vn/"
+        logo: assets/img/clients/vienhaiduonghoc.png
+      - title: "Viện nghiên cứu Lâm sinh"
+        url: "http://www.sri.org.vn/"
+        logo: assets/img/clients/logo_vafs.png  
+      - title: "Viện KHCN Năng lượng và môi trường"
+        url: "https://istee.vn/"
+        logo: assets/img/clients/Logo_ISTEE.png    
 
   team:
     title: "Chuyên gia"
     text: "Đội ngũ nghiên cứu và chuyên gia của Viện"
-    subtext: "Đội ngũ của iWAT gồm các phó giáo sư, tiến sĩ, thạc sĩ và kỹ sư về thủy văn, thủy lực, nước dưới đất, môi trường, GIS và công nghệ thông tin, cùng mạng lưới cộng tác viên trong nước và quốc tế. Đội ngũ đã chủ trì và tham gia nhiều nhiệm vụ khoa học và công nghệ các cấp, đồng thời trực tiếp phát triển các nền tảng WebGIS, bản sao số và hệ thống hỗ trợ ra quyết định."
+    subtext: "Đội ngũ của iWAT gồm các giáo sư, phó giáo sư, tiến sĩ, thạc sĩ và kỹ sư về thủy văn, thủy lực, nước dưới đất, môi trường, GIS và công nghệ thông tin, cùng mạng lưới cộng tác viên trong nước và quốc tế. Đội ngũ đã chủ trì và tham gia nhiều nhiệm vụ khoa học và công nghệ các cấp, đồng thời trực tiếp phát triển các nền tảng WebGIS, bản sao số và hệ thống hỗ trợ ra quyết định."
     section: team
     people:
       # group: nhóm hiển thị (theo thứ tự xuất hiện)
@@ -128,13 +146,40 @@ en: &DEFAULT_EN
         social:
           - url: https://scholar.google.com/citations?user=gfGfhyMAAAAJ
             icon: fas fa-graduation-cap
+
       - name: "NCS. ThS. Nguyễn Văn Hải"
-        group: "Ban lãnh đạo Viện"
-        position: "Phó Viện trưởng"
+        group: "Đội ngũ chuyên gia"
         field: "Viễn thám, động lực môi trường"
         image: assets/img/team/nguyenvanhai.jpeg
         social:
           - url: https://www.researchgate.net/profile/Nguyen-Hai-41
+            icon: fas fa-graduation-cap
+
+      - name: "GS. TS. Nguyễn Kim Lợi"
+        group: "Đội ngũ chuyên gia"
+        field: "Khoa học trái đất, Địa - Tin học, Giám đốc Trung Tâm NC Biến Đổi Khí hậu (RCCC)"
+        image: assets/img/team/nguyenkimloi.jpg
+        org: "Trường Đại học Nông Lâm TP.HCM"
+        social:
+          - url: https://scholar.google.com/citations?user=oCrN8lkAAAAJ
+            icon: fas fa-graduation-cap
+
+      - name: "TS. Cấn Thu Văn"
+        group: "Đội ngũ chuyên gia"
+        field: "Khoa học trái đất, Môi trường"
+        image: assets/img/team/canthuvan.jpeg
+        org: "Trường Đại học Tài nguyên và Môi trường TP.HCM"
+        # social:
+        #   - url: 
+        #     icon: fas fa-graduation-cap
+
+      - name: "PGS. TS. Trần Đăng An"
+        group: "Đội ngũ chuyên gia"
+        field: "Thủy văn, tài nguyên nước, môi trường"
+        org: "Trường Đại học Thủy lợi"
+        image: assets/img/team/trandangan.jpg
+        social:
+          - url: https://scholar.google.com/citations?user=XURuRQQAAAAJ
             icon: fas fa-graduation-cap
 
       - name: "PGS. TS. Triệu Ánh Ngọc"
@@ -144,14 +189,12 @@ en: &DEFAULT_EN
         social:
           - url: https://scholar.google.com/citations?user=r6vOGCoAAAAJ
             icon: fas fa-graduation-cap
-      - name: "PGS. TS. Trần Đăng An"
+
+      - name: "TS. Đoàn Văn Bình"
         group: "Đội ngũ chuyên gia"
-        field: "Thủy văn, tài nguyên nước, môi trường"
-        org: "Trường Đại học Thủy lợi"
-        image: assets/img/team/trandangan.jpg
-        social:
-          - url: https://scholar.google.com/citations?user=XURuRQQAAAAJ
-            icon: fas fa-graduation-cap
+        field: "Thủy văn, Thủy lực"
+        org: "Trường Đại học Việt Đức"
+
       - name: "TS. Lê Công Chính"
         group: "Đội ngũ chuyên gia"
         field: "Địa sinh thái môi trường"
@@ -192,6 +235,235 @@ en: &DEFAULT_EN
       <span class="contact-info"><a href="tel:+84785666677"><i class="fas fa-phone-alt"></i> 0785.6666.77</a></span>
       <span class="contact-info"><i class="fas fa-map-marker-alt"></i> Số 34 đường D2, Khu phố 18, phường Long Trường, TP. HCM</span>
     section: contact
+    name: "Họ và tên*"
+    name-validation: "Vui lòng nhập họ và tên."
+    email: "Email*"
+    email-validation: "Vui lòng nhập địa chỉ email."
+    phone: "Số điện thoại"
+    phone-validation: "Vui lòng nhập số điện thoại."
+    message: "Nội dung*"
+    message-validation: "Vui lòng nhập nội dung."
+    subject: "Liên hệ từ website"
+    submit: "Gửi tin nhắn"
+
+  footer:
+    legal: "Chính sách bảo mật"
+    social: &SOCIAL
+      # - url: https://twitter.com
+      #   icon: "fab fa-twitter"
+      # - url: https://facebook.com
+      #   icon: "fab fa-facebook-f"
+      # - url: https://linkedin.com
+      #   icon: "fab fa-linkedin-in"
+      - url: mailto:info@watertech.vn
+        icon: "fas fa-envelope"
+      - url: https://github.com/watertech-vn
+        icon: "fab fa-github"
+      # - url: https://instagram.com
+      #   icon: "fab fa-instagram"
+
+# English
+# -------
+en:
+  language:
+    name: "English"
+    short: "EN"
+
+  meta:
+    title: "INSTITUTE OF WATER RESOURCES AND ENVIRONMENTAL TECHNOLOGY"
+    description: "Research and technology development institute for water resources, environment, GIS/WebGIS, IoT monitoring and decision support systems."
+
+  header:
+    title: ""
+    text: Smart solutions for a sustainable future
+    button: Learn more
+    buttonlink: "#services"
+
+  services:
+    title: "Expertise"
+    text: "Combining water resources and environmental expertise with digital technology, iWAT delivers solutions from scientific research to practical applications for government agencies, businesses and communities."
+    section: services
+    list:
+      - title: "Water resources"
+        desc: "Hydrological and hydraulic modelling; assessment and forecasting of surface water and groundwater; water resources inventory, planning and water use plans."
+        icon: fas fa-water #find more at https://fontawesome.com/icons
+      - title: "Flood warning & disaster risk"
+        desc: "Real-time forecasting of water levels, discharge and flood warning; assessment of inundation and land subsidence; disaster risk management for river basins and cities."
+        icon: fas fa-cloud-showers-heavy
+      - title: "WebGIS & digital twins"
+        desc: "Development of WebGIS, spatial data platforms and digital twins for river basins, cities and water infrastructure networks."
+        icon: fas fa-map-marked-alt
+      - title: "AI, Big Data & decision support"
+        desc: "Applying artificial intelligence, big data, remote sensing and IoT; developing decision support systems (DSS) for water resources management."
+        icon: fas fa-project-diagram
+      - title: "Urban & industrial water supply and drainage"
+        desc: "Standardizing GIS data of water supply networks and WaterGEMS hydraulic models; assessing and proposing solutions for stormwater and wastewater drainage systems."
+        icon: fas fa-city
+      - title: "Environment & ecosystems"
+        desc: "Water quality monitoring and assessment; protection and restoration of coastal blue carbon ecosystems; nature-based solutions and rainwater reuse."
+        icon: fas fa-seedling
+
+  portfolio:
+    title: "Projects"
+    text: "Selected science and technology tasks, international cooperation projects and consulting contracts the Institute has carried out or is currently implementing."
+    section: portfolio
+    closebutton: "Close"
+
+  timeline:
+    title: "Our journey"
+    text: "Milestones of the Institute of Water Resources and Environmental Technology"
+    section: timeline
+    # left is the default
+    #start_align: "left"
+    events:
+      - title: "Institute founded"
+        year: "2021"
+        desc: "The Institute of Water Resources and Environmental Technology (iWAT) was founded to research and apply technology to water resources and environmental management."
+        image: assets/img/timeline/icon-2021.svg
+        alt: Year 2021
+      - title: "Expanding water resources consulting"
+        year: "2022"
+        desc: "Partnered with Nippon Koei on groundwater surveys and data analysis; delivered the water resources and irrigation component of the Binh Duong Provincial Master Plan; monitored and forecast water resources in the Southeast region and water quality of the Dau Tieng irrigation system; research collaboration on AI models with IIT Guwahati (India)."
+        image: assets/img/timeline/icon-2022.svg
+        alt: Year 2022
+      - title: "Developing decision support systems"
+        year: "2023"
+        desc: "Built 07 decision support problems and software (DSS) for the Mekong Delta Center under the WB9 project."
+        image: assets/img/timeline/icon-2023.svg
+        alt: Year 2023
+      - title: "Building our own technology platform"
+        year: "2024"
+        desc: "Completed hydrodynamic and water quality modelling software integrated with a decision support system; joined the international SAGA project on the Cambodia – Vietnam transboundary aquifer with AIT."
+        image: assets/img/timeline/icon-2024.svg
+        alt: Year 2024
+      - title: "Leading S&T tasks at all levels"
+        year: "2025"
+        desc: "Leading a national-level KC.09 task on blue carbon ecosystems along the South Central coast, a provincial-level task on rainwater harvesting and reuse in Ho Chi Minh City, and a NAFOSTED project on a digital twin for flood warning in the Lam River basin."
+        image: assets/img/timeline/icon-2025.svg
+        alt: Year 2025
+      - title: "Digital transformation of the water sector"
+        year: "2026"
+        desc: "Completed the Ho Chi Minh City rainwater task; deployed NHABEGIS and standardized WaterGEMS data for Nha Be Water Supply; hydraulic assessment of Bien Hoa 2 Industrial Park; partnered on the FLUT urban digital twin project with TU Dresden (Germany)."
+        image: assets/img/timeline/icon-2026.svg
+        alt: Year 2026
+    end: "Building <br> the future <br> together"
+
+  about:
+    title: "About us"
+    text: "Institute of Water Resources and Environmental Technology (iWAT)"
+    body: |
+      Founded in 2021, the **Institute of Water Resources and Environmental Technology (iWAT)** is a science and technology organization working in research, application and technology transfer for water resources and the environment. The Institute focuses on hydrological and hydraulic modelling, WebGIS, digital twins, artificial intelligence and decision support systems, aiming at sustainable water resources management and climate change adaptation.
+
+      The Institute leads and implements national-level and provincial-level science and technology tasks as well as projects funded by NAFOSTED, while providing consulting services to water supply companies, industrial parks and international organizations such as Nippon Koei. The Institute collaborates in research with the Asian Institute of Technology (AIT), Technische Universität Dresden (Germany) and the Indian Institute of Technology Guwahati (India).
+    section: about
+
+  clients:
+    title: "Partners"
+    section: clients
+    speed: 30 # seconds per loop; higher is slower
+    list: *CLIENTS
+
+  team:
+    title: "Experts"
+    text: "The Institute's researchers and experts"
+    subtext: "iWAT's team includes professors, associate professors, PhDs, masters and engineers in hydrology, hydraulics, groundwater, environment, GIS and information technology, together with a network of domestic and international collaborators. The team has led and participated in many science and technology tasks at all levels, and directly develops WebGIS platforms, digital twins and decision support systems."
+    section: team
+    people:
+      # group: display group (rows, in order of appearance)
+      # position: job title · field: expertise · org: affiliation
+      - name: "Dr. Vũ Thị Hoài Thu"
+        group: "Institute leadership"
+        position: "Director"
+        field: "Water environmental engineering"
+        image: assets/img/team/vuthihoaithu.jpg
+        social:
+          - url: https://scholar.google.com/citations?user=gfGfhyMAAAAJ
+            icon: fas fa-graduation-cap
+      - name: "PhD Candidate, MSc. Nguyễn Văn Hải"
+        group: "Experts"
+        field: "Remote sensing, environmental dynamics"
+        image: assets/img/team/nguyenvanhai.jpeg
+        social:
+          - url: https://www.researchgate.net/profile/Nguyen-Hai-41
+            icon: fas fa-graduation-cap
+
+      - name: "Prof. Dr. Nguyễn Kim Lợi"
+        group: "Experts"
+        field: "Earth sciences, Geoinformatics; Director of the Research Center for Climate Change (RCCC)"
+        image: assets/img/team/nguyenkimloi.jpg
+        org: "Nong Lam University – Ho Chi Minh City"
+        social:
+          - url: https://scholar.google.com/citations?user=oCrN8lkAAAAJ
+            icon: fas fa-graduation-cap
+
+      - name: "Dr. Cấn Thu Văn"
+        group: "Experts"
+        field: "Earth sciences, Environment"
+        image: assets/img/team/canthuvan.jpeg
+        org: "Ho Chi Minh City University of Natural Resources and Environment"
+
+      - name: "Assoc. Prof. Dr. Trần Đăng An"
+        group: "Experts"
+        field: "Hydrology, water resources, environment"
+        org: "Thuyloi University"
+        image: assets/img/team/trandangan.jpg
+        social:
+          - url: https://scholar.google.com/citations?user=XURuRQQAAAAJ
+            icon: fas fa-graduation-cap
+
+      - name: "Assoc. Prof. Dr. Triệu Ánh Ngọc"
+        group: "Experts"
+        field: "Hydrology, water resources, environment"
+        org: "Thuyloi University"
+        social:
+          - url: https://scholar.google.com/citations?user=r6vOGCoAAAAJ
+            icon: fas fa-graduation-cap
+
+      - name: "Dr. Đoàn Văn Bình"
+        group: "Experts"
+        field: "Hydrology, hydraulics"
+        org: "Vietnamese-German University"
+
+      - name: "Dr. Lê Công Chính"
+        group: "Experts"
+        field: "Environmental geo-ecology"
+        org: "Thuyloi University"
+      - name: "Dr. Đào Đức Anh"
+        group: "Experts"
+        field: "Hydrology, hydraulics"
+        org: "Thuyloi University"
+      - name: "Dr. Trần Thành Long"
+        group: "Experts"
+        field: "Water resources engineering"
+        org: "Ho Chi Minh City University of Technology – VNU-HCM"
+      - name: "PhD Candidate, MSc. Lê Văn Tiến Hưng"
+        group: "Experts"
+        field: "Water resources engineering"
+        org: "Thuyloi University"
+      - name: "PhD Candidate, MSc. Đoàn Thanh Vũ"
+        group: "Experts"
+        field: "Water resources engineering"
+        org: "Ho Chi Minh City University of Natural Resources and Environment"
+      - name: "MSc. Nguyễn Thanh Hương"
+        group: "Experts"
+        field: "Water supply and drainage engineering"
+      - name: "Eng. Đặng Thị Kiều Oanh"
+        group: "Experts"
+        field: "Water supply and drainage engineering"
+      - name: "Eng. Lê Tấn Đạt"
+        group: "Experts"
+        field: "Hydraulic construction engineering"
+      - name: "Eng. Hồ Minh Trí"
+        group: "Experts"
+        field: "Water supply and drainage engineering"
+
+  contact:
+    title: "Contact us"
+    text: >-
+      <span class="contact-info"><a href="mailto:info@watertech.vn"><i class="fas fa-envelope"></i> info@watertech.vn</a></span>
+      <span class="contact-info"><a href="tel:+84785666677"><i class="fas fa-phone-alt"></i> +84 785 6666 77</a></span>
+      <span class="contact-info"><i class="fas fa-map-marker-alt"></i> 34 D2 Street, Quarter 18, Long Truong Ward, Ho Chi Minh City, Vietnam</span>
+    section: contact
     name: "Name*"
     name-validation: "Please enter your name."
     email: "Email*"
@@ -205,179 +477,4 @@ en: &DEFAULT_EN
 
   footer:
     legal: "Privacy Policy"
-    social:
-      # - url: https://twitter.com
-      #   icon: "fab fa-twitter"
-      # - url: https://facebook.com
-      #   icon: "fab fa-facebook-f"
-      # - url: https://linkedin.com
-      #   icon: "fab fa-linkedin-in"
-      - url: mailto:info@watertech.vn
-        icon: "fas fa-envelope"
-      - url: https://github.com/watertech-vn
-        icon: "fab fa-github"
-      # - url: https://instagram.com
-      #   icon: "fab fa-instagram"
-en-US:
-  <<: *DEFAULT_EN
-en-CA:
-  <<: *DEFAULT_EN
-en-GB:
-  <<: *DEFAULT_EN
-en-AU:
-  <<: *DEFAULT_EN
-
-# Spanish
-# -------
-es: &DEFAULT_ES
-  header:
-    title: ¡Bienvenido a nuestro Estudio!
-    text: Es un placer conocerle
-    button: Ver más
-    buttonlink: "#servicios"
-
-  services:
-    title: "Servicios"
-    text: "Lorem ipsum"
-    section: servicios
-    list:
-      - title: "Comercio Electrónico"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
-        icon: fas fa-shopping-cart #find more at https://fontawesome.com/icons
-      - title: "Diseño Responsivo"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
-        icon: fas fa-laptop
-      - title: "[Markdown](https://en.wikipedia.org/wiki/Markdown)"
-        desc: "Su descripción aquí, soporte completo de **Markdown**"
-        icon: fab fa-markdown
-
-  portfolio:
-    title: "Portafolio"
-    text: "Lorem ipsum dolor sit amet consectetur."
-    section: portafolio
-    closebutton: "Cerrar Proyecto"
-
-  timeline:
-    title: "Cronología"
-    text: "Lorem ipsum timeline"
-    section: cronologia
-    # left is the default
-    #start_align: "left"
-    events:
-      - title: "Nuestro Humilde Comienzo"
-        year: "2009-2011"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-        image: assets/img/timeline/1.jpg
-        alt:
-      - title: "Una Agencia nace"
-        year: "March 2011"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
-        image: assets/img/timeline/2.jpg
-        alt:
-      - title: "La plantilla Jekyll es creada"
-        year: "2019"
-        desc: "Ravi Riley convirtió Agency, una plantilla basada en Bootstrap, en una plantilla de Jekyll. La plantilla Jekyll puede ser instalada commo una gema de Ruby (Ruby gem) o remotamente. Para más información, visite la documentación."
-        image: assets/img/timeline/3.jpg
-        alt: image alt text
-      - title: "Título"
-        year: "2009-2011"
-        desc: "Su descripción aquí, **Markdown** es soportado completamente."
-        image: assets/img/timeline/4.jpg
-        alt:
-        # you can enforce the alignment
-        align: right
-    end: "¡Se parte <br> de Nuestra <br> Historia!"
-
-  about:
-    title: "Sobre nosotros"
-    text: "nuestra historia"
-    body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported."
-    section: nosotros
-
-  clients:
-    section: clientes
-    max-height: 100px
-    horizontal-scrolling: "" #"yes/no"
-    list:
-      - title: "envato"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: assets/img/clients/envato.jpg
-      - title: "designmodo"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: assets/img/clients/designmodo.jpg
-      - title: "themeforest"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: assets/img/clients/themeforest.jpg
-      - title: "Creative Market"
-        url: https://github.com/raviriley/agency-jekyll-theme
-        logo: assets/img/clients/creative-market.jpg
-
-  team:
-    title: "NUESTRO INCREÍBLE EQUIPO"
-    text: "Lorem ipsum dolor sit amet consectetur."
-    subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
-    section: equipo
-    people:
-      - name: "Kay Garland"
-        role: "Lead Designer"
-        image: assets/img/team/500x500.jpg
-        social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
-          - url: https://linkedin.com
-            icon: fab fa-linkedin-in
-      - name: "Larry Parker"
-        role: "Lead Marketer"
-        image: assets/img/team/2.jpg
-        social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
-          - url: https://linkedin.com
-            icon: fab fa-linkedin-in
-      - name: "Diana Perterson"
-        role: "Lead Developer"
-        image: assets/img/team/500x500.jpg
-        social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
-          - url: https://linkedin.com
-            icon: fab fa-linkedin-in
-
-  contact:
-    title: "Contáctenos"
-    text: "Lorem ipsum or call 123456789"
-    section: contacto
-    name: "Nombre*"
-    name-validation: "Por favor ingrese su nombre."
-    email: "Correo Electrónico*"
-    email-validation: "Por favor ingrese su correo electrónico."
-    phone: "Número Telefónico*"
-    phone-validation: "Por favor ingrese su número telefónico."
-    message: "Mensaje*"
-    message-validation: "Por favor escriba un mensaje."
-    subject: "Envío del formulario de contacto"
-    submit: "Enviar Mensaje"
-
-  footer:
-    legal: "Política de Privacidad"
-    social:
-      # - url: https://twitter.com
-      #   icon: "fab fa-twitter"
-      # - url: https://facebook.com
-      #   icon: "fab fa-facebook-f"
-      # - url: https://linkedin.com
-      #   icon: "fab fa-linkedin-in"
-      - url: https://github.com/watertech-vn
-        icon: "fab fa-github"
-      # - url: https://instagram.com
-      #   icon: "fab fa-instagram"
-es-ES:
-  <<: *DEFAULT_ES
-es-CO:
-  <<: *DEFAULT_ES
+    social: *SOCIAL

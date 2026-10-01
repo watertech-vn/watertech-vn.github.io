@@ -1,0 +1,11 @@
+{%- comment -%} Liên kết chuyển sang các ngôn ngữ khác, cùng trang tương ứng. Cần include i18n.html trước. {%- endcomment -%}
+{%- for l in site.languages -%}
+  {%- if l != lang -%}
+    {%- if l == site.locale -%}{%- assign l_prefix = "" -%}{%- else -%}{%- assign l_prefix = "/" | append: l -%}{%- endif -%}
+    {%- assign l_url = page.alt_path | default: page_path | prepend: l_prefix | relative_url -%}
+    {%- assign l_text = site.data.sitetext[l].language -%}
+<li class="nav-item">
+  <a class="nav-link lang-switch" href="{{ l_url }}" hreflang="{{ l }}" lang="{{ l }}" title="{{ l_text.name }}"><i class="fas fa-globe"></i> {{ l_text.short | default: l | upcase }}</a>
+</li>
+  {%- endif -%}
+{%- endfor -%}

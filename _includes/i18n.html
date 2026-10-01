@@ -1,0 +1,21 @@
+{%- comment -%}
+  Xác định ngôn ngữ của trang hiện tại và các biến dùng chung:
+    lang        : mã ngôn ngữ ("vi", "en", ...), lấy từ front matter / defaults
+    t           : văn bản giao diện theo ngôn ngữ (_data/sitetext.yml)
+    nav         : menu theo ngôn ngữ (_data/navigation.yml)
+    lang_prefix : "" với ngôn ngữ mặc định, "/en" với tiếng Anh, ...
+    page_path   : đường dẫn trang không kèm tiền tố ngôn ngữ (dùng để chuyển ngôn ngữ)
+    site_title  : tên site theo ngôn ngữ
+  Jekyll dùng chung biến giữa các include, nên chỉ cần include file này ở đầu.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: site.locale | default: "vi" -%}
+{%- assign t = site.data.sitetext[lang] | default: site.data.sitetext[site.locale] -%}
+{%- assign nav = site.data.navigation[lang].nav | default: site.data.navigation[site.locale].nav -%}
+{%- if lang == site.locale -%}
+  {%- assign lang_prefix = "" -%}
+  {%- assign page_path = page.url -%}
+{%- else -%}
+  {%- assign lang_prefix = "/" | append: lang -%}
+  {%- assign page_path = page.url | remove_first: lang_prefix -%}
+{%- endif -%}
+{%- assign site_title = t.meta.title | default: site.title -%}

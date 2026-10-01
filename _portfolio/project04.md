@@ -18,3 +18,4 @@ Nhiệm vụ xây dựng cơ sở khoa học và đề xuất giải pháp bảo
 - **Đặt hàng:** Bộ Khoa học và Công nghệ
 - **Vai trò:** Tổ chức chủ trì
 - **Trạng thái:** Đang thực hiện
+- **Phối hợp:** Viện KHCN Năng lượng và Môi trường, Viện Hải dương học, Viện Nghiên cứu Lâm sinh
