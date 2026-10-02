@@ -19,12 +19,12 @@
     {% comment %}
       Mỗi nhóm (group) là một hàng riêng, không hiện tiêu đề nhóm.
       Nhóm có tối đa 3 người (vd. Ban lãnh đạo) hiện tĩnh; nhóm đông hơn hiện thành
-      băng chuyền ngang, tự trượt sau mỗi `interval` giây (mặc định 4).
+      băng chuyền ngang, tự trượt sau mỗi `interval` giây (mặc định 3).
     {% endcomment %}
     {% assign groups = team.people | group_by: "group" %}
     {% for group in groups %}
     {% if group.items.size > 3 %}
-    <div class="team-carousel" data-interval="{{ team.interval | default: 4 }}" role="region" aria-roledescription="carousel" aria-label="{{ team.title }}">
+    <div class="team-carousel" data-interval="{{ team.interval | default: 3 }}" role="region" aria-roledescription="carousel" aria-label="{{ team.title }}">
       <button type="button" class="team-carousel-btn team-carousel-prev" aria-label="{{ team.prev_label | default: 'Previous' }}"><i class="fas fa-chevron-left"></i></button>
       <div class="team-carousel-track" tabindex="0">
         {% for person in group.items %}
@@ -52,7 +52,7 @@
     document.querySelectorAll(".team-carousel").forEach(function (root) {
       var track = root.querySelector(".team-carousel-track");
       var items = track.children;
-      var delay = (parseFloat(root.dataset.interval) || 4) * 1000;
+      var delay = (parseFloat(root.dataset.interval) || 3) * 1000;
       var timer = null;
       var paused = false;
       var visible = true;
@@ -63,17 +63,19 @@
       function atEnd() {
         return track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
       }
+      // người dùng bật "giảm chuyển động": vẫn tự chuyển thẻ nhưng nhảy thẳng, không trượt mượt
+      var behavior = matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
       function go(dir) {
-        if (dir > 0 && atEnd()) track.scrollTo({ left: 0, behavior: "smooth" });
-        else if (dir < 0 && track.scrollLeft <= 2) track.scrollTo({ left: track.scrollWidth, behavior: "smooth" });
-        else track.scrollBy({ left: dir * step(), behavior: "smooth" });
+        if (dir > 0 && atEnd()) track.scrollTo({ left: 0, behavior: behavior });
+        else if (dir < 0 && track.scrollLeft <= 2) track.scrollTo({ left: track.scrollWidth, behavior: behavior });
+        else track.scrollBy({ left: dir * step(), behavior: behavior });
       }
       function stop() {
         clearInterval(timer);
         timer = null;
       }
       function start() {
-        if (timer || paused || !visible || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (timer || paused || !visible) return;
         timer = setInterval(function () { go(1); }, delay);
       }
       function pause() { paused = true; stop(); }
