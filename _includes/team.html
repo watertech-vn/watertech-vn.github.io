@@ -19,12 +19,12 @@
     {% comment %}
       Mỗi nhóm (group) là một hàng riêng, không hiện tiêu đề nhóm.
       Nhóm có tối đa 3 người (vd. Ban lãnh đạo) hiện tĩnh; nhóm đông hơn hiện thành
-      băng chuyền ngang, tự trượt sau mỗi `interval` giây (mặc định 2).
+      băng chuyền ngang, tự trượt sau mỗi `interval` giây (mặc định 3).
     {% endcomment %}
     {% assign groups = team.people | group_by: "group" %}
     {% for group in groups %}
     {% if group.items.size > 3 %}
-    <div class="team-carousel" data-interval="{{ team.interval | default: 2 }}" role="region" aria-roledescription="carousel" aria-label="{{ team.title }}">
+    <div class="team-carousel" data-interval="{{ team.interval | default: 3 }}" role="region" aria-roledescription="carousel" aria-label="{{ team.title }}">
       <button type="button" class="team-carousel-btn team-carousel-prev" aria-label="{{ team.prev_label | default: 'Previous' }}"><i class="fas fa-chevron-left"></i></button>
       <div class="team-carousel-track" tabindex="0">
         {% for person in group.items %}
@@ -52,7 +52,7 @@
     document.querySelectorAll(".team-carousel").forEach(function (root) {
       var track = root.querySelector(".team-carousel-track");
       var items = track.children;
-      var delay = (parseFloat(root.dataset.interval) || 2) * 1000;
+      var delay = (parseFloat(root.dataset.interval) || 3) * 1000;
       var timer = null;
       var paused = false;
       var visible = true;
