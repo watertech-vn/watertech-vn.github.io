@@ -16,35 +16,89 @@
       </div>
     </div>
     {% endif %}
-    {% comment %} mỗi nhóm (group) là một hàng riêng, không hiện tiêu đề nhóm {% endcomment %}
+    {% comment %}
+      Mỗi nhóm (group) là một hàng riêng, không hiện tiêu đề nhóm.
+      Nhóm có tối đa 3 người (vd. Ban lãnh đạo) hiện tĩnh; nhóm đông hơn hiện thành
+      băng chuyền ngang, tự trượt sau mỗi `interval` giây (mặc định 4).
+    {% endcomment %}
     {% assign groups = team.people | group_by: "group" %}
     {% for group in groups %}
+    {% if group.items.size > 3 %}
+    <div class="team-carousel" data-interval="{{ team.interval | default: 4 }}" role="region" aria-roledescription="carousel" aria-label="{{ team.title }}">
+      <button type="button" class="team-carousel-btn team-carousel-prev" aria-label="{{ team.prev_label | default: 'Previous' }}"><i class="fas fa-chevron-left"></i></button>
+      <div class="team-carousel-track" tabindex="0">
+        {% for person in group.items %}
+        <div class="team-carousel-item">
+          {% include team_member.html %}
+        </div>
+        {% endfor %}
+      </div>
+      <button type="button" class="team-carousel-btn team-carousel-next" aria-label="{{ team.next_label | default: 'Next' }}"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    {% else %}
     <div class="row d-flex justify-content-center">
       {% for person in group.items %}
       <div class="col-lg-4 col-sm-6">
-        <div class="team-member">
-          <img class="mx-auto rounded-circle" src="{{ person.image | default: "assets/img/team/default-image.jpg" | prepend: '/' | relative_url }}" alt="{{ person.name }}">
-          <h4>{{ person.name }}</h4>
-          {% if person.position %}<span class="team-position">{{ person.position }}</span>{% endif %}
-          {% if person.field %}<p class="team-field">{{ person.field }}</p>{% endif %}
-          {% if person.org %}<p class="team-org">{{ person.org }}</p>{% endif %}
-          {% if person.role %}<p class="text-muted">{{ person.role }}</p>{% endif %}
-          {% if person.social %}
-          <ul class="list-inline social-buttons">
-            {% for network in person.social %}
-            <li class="list-inline-item">
-              <a href="{{ network.url }}" target="_blank" rel="noopener">
-                <i class="{{ network.icon }}"></i>
-              </a>
-            </li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-        </div>
+        {% include team_member.html %}
       </div>
       {% endfor %}
     </div>
+    {% endif %}
     {% endfor %}
   </div>
 </section>
+<script>
+  (function () {
+    document.querySelectorAll(".team-carousel").forEach(function (root) {
+      var track = root.querySelector(".team-carousel-track");
+      var items = track.children;
+      var delay = (parseFloat(root.dataset.interval) || 4) * 1000;
+      var timer = null;
+      var paused = false;
+      var visible = true;
+
+      function step() {
+        return items.length > 1 ? items[1].offsetLeft - items[0].offsetLeft : track.clientWidth;
+      }
+      function atEnd() {
+        return track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+      }
+      function go(dir) {
+        if (dir > 0 && atEnd()) track.scrollTo({ left: 0, behavior: "smooth" });
+        else if (dir < 0 && track.scrollLeft <= 2) track.scrollTo({ left: track.scrollWidth, behavior: "smooth" });
+        else track.scrollBy({ left: dir * step(), behavior: "smooth" });
+      }
+      function stop() {
+        clearInterval(timer);
+        timer = null;
+      }
+      function start() {
+        if (timer || paused || !visible || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        timer = setInterval(function () { go(1); }, delay);
+      }
+      function pause() { paused = true; stop(); }
+      function resume() { paused = false; start(); }
+
+      root.querySelector(".team-carousel-prev").addEventListener("click", function () { go(-1); });
+      root.querySelector(".team-carousel-next").addEventListener("click", function () { go(1); });
+      root.addEventListener("mouseenter", pause);
+      root.addEventListener("mouseleave", resume);
+      root.addEventListener("focusin", pause);
+      root.addEventListener("focusout", resume);
+      root.addEventListener("touchstart", pause, { passive: true });
+      root.addEventListener("touchend", function () { setTimeout(resume, delay); }, { passive: true });
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) stop(); else start();
+      });
+      // chỉ tự trượt khi băng chuyền đang nằm trong khung nhìn
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          visible = entries[0].isIntersecting;
+          if (visible) start(); else stop();
+        }).observe(root);
+      }
+      start();
+    });
+  })();
+</script>
 <!-- End Team -->

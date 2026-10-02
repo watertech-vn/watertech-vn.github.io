@@ -354,6 +354,66 @@ $card-radius-small: 14px;
   }
 }
 
+// Custom: Chuyên gia — băng chuyền ngang tự trượt (xem _includes/team.html)
+.team-carousel {
+  position: relative;
+  margin-top: 20px;
+
+  .team-carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  // 3 thẻ/hàng trên máy tính, 2 trên máy tính bảng, 1 trên điện thoại
+  .team-carousel-item {
+    flex: 0 0 33.3333%;
+    padding: 0 15px;
+    scroll-snap-align: start;
+    @media (max-width: 991px) {
+      flex-basis: 50%;
+    }
+    @media (max-width: 575px) {
+      flex-basis: 100%;
+    }
+  }
+  .team-member {
+    margin-bottom: 30px;
+  }
+
+  .team-carousel-btn {
+    position: absolute;
+    top: 112px; // giữa ảnh đại diện
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    color: $primary;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 30, 60, 0.2);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    &:hover,
+    &:focus-visible {
+      color: #fff;
+      background: $primary;
+    }
+  }
+  .team-carousel-prev {
+    left: 0;
+  }
+  .team-carousel-next {
+    right: 0;
+  }
+}
+
 // Custom: Đơn vị phối hợp — dải logo chạy ngang, mỗi logo nằm trong ô cùng kích thước (không viền)
 $client-slot-w: 200px;
 $client-slot-h: 110px;

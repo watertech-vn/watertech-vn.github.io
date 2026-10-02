@@ -38,6 +38,10 @@ Language is determined per page and drives everything:
 
 Projects are the `portfolio` collection (`_portfolio/projectNN.md`, Vietnamese = canonical). English translations live in `_portfolio/en/` **with the same filename**. `_includes/portfolio_list.html` builds the `projects` list from the Vietnamese files and swaps in the English file matched by `slug`; a project without a translation falls back to the Vietnamese version. So a new project needs `_portfolio/projectNN.md` plus `_portfolio/en/projectNN.md`, with images in `assets/img/portfolio/`. Rendering is in `portfolio_grid.html` (cards + modals via `modals.html`).
 
+## Team section
+
+`_includes/team.html` groups `team.people` (in `_data/sitetext.yml`) by their `group` field. A group with 3 or fewer people renders as a static row; a larger group renders as a horizontal auto-sliding carousel (scroll-snap track plus an inline script in the include; interval from `team.interval`, seconds). Each card is `_includes/team_member.html`. Carousel styles are in `assets/css/agency.scss`.
+
 ## Styling
 
 `assets/css/agency.scss` is a Liquid-processed SCSS entry (empty front matter) that pulls colors/fonts/images from `_data/style.yml`; change brand colors there rather than in SCSS. `_layouts/default.html` loads the theme's JS from `assets/js/` (provided by the remote theme).
