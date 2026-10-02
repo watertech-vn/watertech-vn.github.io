@@ -19,7 +19,7 @@ There are no tests or linters. Verification is building the site and viewing it 
 The plain commands above fail there, so check UI changes like this (all temp files in the scratchpad, nothing in the repo):
 
 1. `Gemfile` has no `jekyll` gem (`github-pages` is commented out), so `bundle exec jekyll` reports "command not found". Use a scratch Gemfile with `jekyll ~> 4.3`, `jekyll-remote-theme`, `jekyll-feed`, `webrick`, point `BUNDLE_GEMFILE` at it, and run Jekyll via `bundle exec ruby -e 'load Gem.bin_path("jekyll","jekyll")' build ...`.
-2. The proxy blocks the remote theme download (`codeload.github.com` returns 403). Instead, `git clone --depth 1 https://github.com/raviriley/agency-jekyll-theme`, copy it into a scratch dir, copy this repo over it (excluding `.git`), and build with an override config that sets `remote_theme: ""` (`--config _config.yml,override.yml --destination <scratch>/_site`).
+2. The proxy blocks the remote theme download (`codeload.github.com` returns 403). Instead, `git clone --depth 1 https://github.com/raviriley/agency-jekyll-theme`, copy it into a scratch dir, delete the theme's sample `_portfolio/` files (`example.md`, `project1.md`, `project2.md`; otherwise they show up as broken placeholder cards, and the real remote theme does not ship them), copy this repo over it (excluding `.git`), and build with an override config that sets `remote_theme: ""` (`--config _config.yml,override.yml --destination <scratch>/_site`).
 3. Serve `_site/` (`python3 -m http.server 4000`) and screenshot with `/opt/pw-browsers/chromium-*/chrome-linux/chrome --headless --no-sandbox --virtual-time-budget=5000 --screenshot=out.png <url>`.
 
 Sass deprecation warnings from the theme during the build are expected.
