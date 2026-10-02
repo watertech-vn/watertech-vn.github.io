@@ -1,0 +1,20 @@
+{%- comment -%} Thẻ một thành viên; dùng biến `person` do _includes/team.html truyền vào. {%- endcomment -%}
+<div class="team-member">
+  <img class="mx-auto rounded-circle" src="{{ person.image | default: "assets/img/team/default-image.jpg" | prepend: '/' | relative_url }}" alt="{{ person.name }}" loading="lazy">
+  <h4>{{ person.name }}</h4>
+  {% if person.position %}<span class="team-position">{{ person.position }}</span>{% endif %}
+  {% if person.field %}<p class="team-field">{{ person.field }}</p>{% endif %}
+  {% if person.org %}<p class="team-org">{{ person.org }}</p>{% endif %}
+  {% if person.role %}<p class="text-muted">{{ person.role }}</p>{% endif %}
+  {% if person.social %}
+  <ul class="list-inline social-buttons">
+    {% for network in person.social %}
+    <li class="list-inline-item">
+      <a href="{{ network.url }}" target="_blank" rel="noopener">
+        <i class="{{ network.icon }}"></i>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>
