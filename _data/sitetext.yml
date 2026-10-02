@@ -135,7 +135,7 @@ vi:
     text: "Đội ngũ nghiên cứu và chuyên gia của Viện"
     subtext: "Đội ngũ của iWAT gồm các giáo sư, phó giáo sư, tiến sĩ, thạc sĩ và kỹ sư về thủy văn, thủy lực, nước dưới đất, môi trường, GIS và công nghệ thông tin, cùng mạng lưới cộng tác viên trong nước và quốc tế. Đội ngũ đã chủ trì và tham gia nhiều nhiệm vụ khoa học và công nghệ các cấp, đồng thời trực tiếp phát triển các nền tảng WebGIS, bản sao số và hệ thống hỗ trợ ra quyết định."
     section: team
-    interval: 4 # số giây giữa các lần tự trượt của băng chuyền
+    interval: 2 # số giây giữa các lần tự trượt của băng chuyền
     prev_label: "Trước"
     next_label: "Sau"
     people:
@@ -392,7 +392,7 @@ en:
     text: "The Institute's researchers and experts"
     subtext: "iWAT's team includes professors, associate professors, PhDs, masters and engineers in hydrology, hydraulics, groundwater, environment, GIS and information technology, together with a network of domestic and international collaborators. The team has led and participated in many science and technology tasks at all levels, and directly develops WebGIS platforms, digital twins and decision support systems."
     section: team
-    interval: 4 # seconds between automatic slides of the carousel
+    interval: 2 # seconds between automatic slides of the carousel
     prev_label: "Previous"
     next_label: "Next"
     people:
